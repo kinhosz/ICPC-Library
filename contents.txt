@@ -1,0 +1,31 @@
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+#   [filename within code directory][tab character \t][subsection title]
+# tab character:	
+
+[Data Structures]
+DataStructures/bit.cpp	BIT - Binary Indexed Tree
+DataStructures/colorUpdate.cpp	Color Update
+DataStructures/dsu.cpp	DSU - Disjoint Union Set
+DataStructures/mergeSortTree.cpp	Merge Sort Tree
+DataStructures/segTree.cpp	Segment Tree
+DataStructures/tetrix.cpp	Tetrix - Stack of Segments
+DataStructures/treap.cpp	Treap
+
+[Dynamic Programming]
+DP/CHTPersistent.cpp	CHT - Convex Hull Trick (Persistent)
+DP/SOS.cpp	SOS - Subset Over Sum DP
+
+[Graph]
+Graph/dinic.cpp	Dinic
+Graph/hld.cpp	HLD - Heavy-Ligth Decomposition
+Graph/lca.cpp	LCA - Lowest Common Ancestor
+
+[Number Theory]
+NT/millerRabin.cpp	Miller Rabin
+
+[String]
+String/aho-corasick.cpp	Aho-corasick
+String/eertree.cpp	Palindromic Tree
+String/suffixArray.cpp	Suffix Array
