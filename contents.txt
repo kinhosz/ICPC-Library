@@ -12,6 +12,7 @@ DataStructures/mergeSortTree.cpp	Merge Sort Tree
 DataStructures/segTree.cpp	Segment Tree
 DataStructures/tetrix.cpp	Tetrix - Stack of Segments
 DataStructures/treap.cpp	Treap
+DataStructures/seg2d.cpp	Segment Tree 2D
 
 [Dynamic Programming]
 DP/CHTPersistent.cpp	CHT - Convex Hull Trick (Persistent)
@@ -29,3 +30,6 @@ NT/millerRabin.cpp	Miller Rabin
 String/aho-corasick.cpp	Aho-corasick
 String/eertree.cpp	Palindromic Tree
 String/suffixArray.cpp	Suffix Array
+
+[Notes]
+Notes/lp.cpp	Linear Progamming Primal/Dual Conversion
