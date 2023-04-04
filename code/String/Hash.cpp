@@ -1,34 +1,34 @@
 class Hash{
-  ll Q;
-  const ll MOD[2] = {1000000009, 999996223};
-  vector<vector<ll>> hashes;
-  vector<vector<ll>> powerQ;
+  int Q;
+  const int MOD[2] = {1000000009, 999996223};
+  vector<vector<int>> hashes;
+  vector<vector<int>> powerQ;
 private:
-  auto add(auto a, ll b){
+  vector<int> add(vector<int> a, int b){
     for(int i=0;i<2;i++) a[i] = (a[i] + b)%MOD[i];
     return a;
   }
 
-  auto mult(auto a, ll b){
-    for(int i=0;i<2;i++) a[i] = (a[i] * b)%MOD[i];
+  vector<int> mult(vector<int> a, int b){
+    for(int i=0;i<2;i++) a[i] = (ll(a[i]) * ll(b))%MOD[i];
     return a;
   }
 
-  auto mult(auto a, auto b){
-    for(int i=0;i<2;i++) a[i] = (a[i] * b[i])%MOD[i];
+  vector<int> mult(vector<int> a, vector<int> b){
+    for(int i=0;i<2;i++) a[i] = (ll(a[i]) * ll(b[i]))%MOD[i];
     return a;
   }
 
-  auto sub(auto a, auto b){
+  vector<int> sub(vector<int> a, vector<int> b){
     for(int i=0;i<2;i++) a[i] = (a[i] - b[i] + MOD[i])%MOD[i];
     return a;
   }
 
-  ll getId(char x){
-    return ll(x - '0');
+  int getId(char x){
+    return int(x - '0');
   }
 
-  auto toPair(auto a){
+  pair<int,int> toPair(vector<int> a){
     return make_pair(a[0], a[1]);
   }
 
@@ -36,18 +36,21 @@ public:
   Hash(int q): Q(q){}
 
   void build(string &S){
-    vector<ll> current = {0LL, 0LL};
-    powerQ.push_back({1LL, 1LL});
+    hashes.resize(S.size());
+    powerQ.resize(S.size());
+
+    vector<int> current = {0, 0};
+    powerQ[0] = {1, 1};
     for(int i=0;i<S.size();i++){
       current = mult(current, Q);
       current = add(current, getId(S[i]));
-      hashes.push_back(current);
-      if(i!=0) powerQ.push_back(mult(powerQ[i-1], Q));
+      hashes[i] = current;
+      if(i!=0) powerQ[i] = mult(powerQ[i-1], Q);
     }
   }
 
-  auto getHash(int l, int r){
-    auto hsh = hashes[r];
+  pair<int,int> getHash(int l, int r){
+    vector<int> hsh = hashes[r];
     l--;
     if(l <= -1) return toPair(hsh);
     return toPair(sub(hsh, mult(hashes[l], powerQ[r-l])));
