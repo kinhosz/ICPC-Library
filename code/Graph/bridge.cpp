@@ -14,8 +14,10 @@ int bridge(int u, int p, int l){
   int ret = -1;
   lvl[u] = l;
 
+  int self = 0;
+
   for(auto v: adj[u]){
-      if(v == p) continue;
+      if(v == p){ self++; continue; }
       int cb = -1;
 
       if(lvl[v] != -1) cb = v;
@@ -30,6 +32,7 @@ int bridge(int u, int p, int l){
 
   bool isBridge = true;
   if(ret != -1) isBridge = false;
+  if(self != 1) isBridge = false;
 
   if(p != -1) edges.push_back({{p, u}, isBridge});
 
