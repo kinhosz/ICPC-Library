@@ -44,7 +44,7 @@ class EulerPath{
 		}
 	}
 
-	void circuit(vector<int> &path, vector<ii> &ans){
+	void build(vector<int> &path, vector<ii> &ans){
 		int from = this->root;
 
 		for(int i=(int)path.size()-1;i>=0;i--){
@@ -85,7 +85,7 @@ public:
 
 		vector<int> path;
 		this->dfs(this->root, path);
-		circuit(path, ans);
+		build(path, ans);
 	}
 
 	int getRoot(){ return this->root; }
