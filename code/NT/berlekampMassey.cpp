@@ -7,27 +7,27 @@ vector<T> berlekampMassey(const vector<T> &s){
 	for(int i=0; i<n; i++, m++){
 		T d = s[i];
 		for(int j=1;j<=l;j++){
-			d += c[j] * s[i-j];
+			d = ((c[j] * s[i-j]) % mod + d) % mod;
 		}
 		if(d == T(0)) continue;
 
 		vector<T> temp = c;
 
-		T coef = d / ld;
+		T coef = (d * ld) % mod;
 		for(int j=m;j<n;j++){
-			c[j] -= coef * b[j - m];
+			c[j] = (c[j] + mod - (coef * b[j - m]) % mod) % mod;
 		}
 
 		if(2 * l <= i){
 			l = i + 1 - l;
 			m = 0;
 			b = temp;
-			ld = d;
+			ld = fastExp(d, mod-2);
 		}
 	}
 	c.resize(l+1);
 	c.erase(c.begin());
 
-	for(T &x: c) x = -x;
+	for(T &x: c) x = (mod - x) % mod;
 	return c;
 }
